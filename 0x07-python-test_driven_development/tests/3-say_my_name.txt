@@ -1,0 +1,22 @@
+The ``3-say_my_name`` module
+===========================
+using ``say_my_name``
+====================
+::
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name(12, "john")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+::
+
+>>> say_my_name("john", 12)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+::
+
+>>> say_my_name("", "john")
+Traceback (most recent call last):
+ValueError: first name cannot be blank
