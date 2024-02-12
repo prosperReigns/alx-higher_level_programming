@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module for a rectangle"""
 
+
 class Rectangle:
     """represents a rectangle"""
 
@@ -13,7 +14,7 @@ class Rectangle:
     def width(self):
         """Get/set the current width of the rectangle"""
         return (self.__width)
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -26,7 +27,7 @@ class Rectangle:
     def height(self):
         """Get/set the current height of the rectangle"""
         return (self.__height)
-    
+
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
