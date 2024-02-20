@@ -12,4 +12,6 @@ class Student:
 
     def to_json(self):
         """returns a dictionary representation of a class"""
-        return {"first_name": self.first_name, "last_name": self.last_name, "age": self.age}
+        return {"first_name": self.first_name, 
+                "last_name": self.last_name,
+                "age": self.age}

@@ -12,7 +12,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """returns a dictionary representation of a class
-        
+
         Args:
             attrs (list): a list of attributes
         """
@@ -20,4 +20,3 @@ class Student:
                 all(type(element) == str for element in attrs)):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
-
