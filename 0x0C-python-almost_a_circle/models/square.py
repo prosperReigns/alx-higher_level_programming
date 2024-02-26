@@ -1,4 +1,4 @@
-#1/usr/bin/python3
+#!/usr/bin/python3
 """a module that creates a square from a rectangle"""
 from models.rectangle import Rectangle
 """importing subclass rectangle"""
@@ -19,10 +19,9 @@ class Square(Rectangle):
         self.size = size
         super().__init__(size, size, x, y, id)
 
-
     def __str__(self):
+        """prints a string representation of an object"""
         return "[Square] ({:d}) {:d}/{:d} - {}".format(self.id, self.x, self.y, self.width)
-
 
     @property
     def size(self):
@@ -31,7 +30,7 @@ class Square(Rectangle):
     @size.setter
     def size(self, size):
         """get and set the size of an object
-        
+
         Args:
             self (object): the object itself -> square
             value (int): size of the object
@@ -44,35 +43,49 @@ class Square(Rectangle):
 
         self.__size = size
 
-
     def update(self, *args, **kwargs):
-        """update the square
-        
+        """Update the Square
+
         Args:
-            self (object): the object itself -> square
-            args (tuple): size of the object
-            kwargs (dict):
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents size attribute
+                - 3rd argument represents x attribute
+                - 4th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
         """
-        if args:
-            if len(args) > 0:
-                self.id = args[0]
-            if len(args) > 1:
-                self.size = args[1]
-            if len(args) > 2:
-                self.x = args[2]
-            if len(args) > 3:
-                self.y = args[3]
-        elif kwargs:
-            if "id" in kwargs:
-                self.id = kwargs["id"]
-            if "size" in kwargs:
-                self.size = kwargs["size"]
-            if "x" in kwargs:
-                self.x = kwargs["x"]
-            if "y" in kwargs:
-                self.y = kwargs["y"]
-    
+        if args and len(args) != 0:
+            a = 0
+            for arg in args:
+                if a == 0:
+                    if arg is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif a == 1:
+                    self.size = arg
+                elif a == 2:
+                    self.x = arg
+                elif a == 3:
+                    self.y = arg
+                a += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == "size":
+                    self.size = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
+
     def to_dictionary(self):
+        """converts an instance into a python string"""
         return {
             "id": self.id,
             "size": self.size,

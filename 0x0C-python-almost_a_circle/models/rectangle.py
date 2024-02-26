@@ -14,7 +14,7 @@ class Rectangle(Base):
         self.y = y
 
         super().__init__(id)
-    
+
     @property
     def width(self):
         return self.__width
@@ -22,11 +22,11 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """gets and set the width of the rectangle
-        
+
          Args:
             self (object): the object itself -> rectangle
             width (int): width of the recatangle
-        """ 
+        """
 
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
@@ -42,11 +42,11 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         """gets and set the height of the rectangle
-        
+
          Args:
             self (object): the object itself -> rectangle
             height (int): height of the recatangle
-        """ 
+        """
 
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
@@ -62,11 +62,11 @@ class Rectangle(Base):
     @x.setter
     def x(self, x):
         """gets and set the x cordinate
-        
+
         Args:
             self (object): the object itself -> rectangle
             x (int): x cordinate of the recatangle
-        """ 
+        """
 
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
@@ -81,11 +81,11 @@ class Rectangle(Base):
     @y.setter
     def y(self, y):
         """gets and set the y cordinate
-        
+
          Args:
             self (object): the object itself -> rectangle
             y (int): y cordinate of the recatangle
-        """ 
+        """
 
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
@@ -96,11 +96,10 @@ class Rectangle(Base):
     def area(self):
         """finds the area of a rectangle"""
 
-        return self.width * self.height
-
+        return (self.width * self.height)
 
     def display(self):
-        """ """
+        """shows a rectangle"""
         for x in range(self.x):
             for y in range(self.y - 1):
                 print("", end="\n")
@@ -110,15 +109,9 @@ class Rectangle(Base):
                 print("#", end="")
             print("", end="\n")
 
-
     def __str__(self):
-        """ """
-        return "[Rectangle] ({:d}) {:d}/{:d} -  {:d}/{:d}".format(self.id,
-                                                                self.x, 
-                                                                self.y,
-                                                                self.width,
-                                                                self.height)
-
+        """prints a string representation of the object"""
+        return "[Rectangle] ({:d}) {:d}/{:d} -  {:d}/{:d}".format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """ update th rectangle
@@ -133,9 +126,9 @@ class Rectangle(Base):
             if len(args) > 0:
                 self.id = args[0]
             if len(args) > 1:
-                self.width= args[1]
+                self.width = args[1]
             if len(args) > 2:
-                self.height= args[2]
+                self.height = args[2]
             if len(args) > 3:
                 self.x = args[3]
             if len(args) > 4:
@@ -152,8 +145,8 @@ class Rectangle(Base):
             if "y" in kwargs:
                 self.y = kwargs["y"]
 
-
     def to_dictionary(self):
+        """converts an instance into a python string"""
         return {
             "id": self.id,
             "width": self.width,
