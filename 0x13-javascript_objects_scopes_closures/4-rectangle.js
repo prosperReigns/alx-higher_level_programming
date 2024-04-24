@@ -6,8 +6,8 @@ class Rectangle {
 
   constructor (w, h) {
     if (w <= 0 || h <= 0) {
-      this.width;
-      this.height;
+      this.width = undefined;
+      this.heigh = undefined;
     } else {
       this.width = w;
       this.height = h;
@@ -18,20 +18,21 @@ class Rectangle {
     for (let i = 0; i < this.height; i++) {
       let line = ' ';
       for (let j = 0; j < this.width; j++) {
-	line += 'X';
+        line += 'X';
       }
       console.log(line);
     }
   }
 
   rotate () {
-    let temp = this.width;
+    const temp = this.width;
     this.width = this.height;
     this.height = temp;
   }
+
   double () {
-    this.width = this.width * 2;
-    this.height = this.height * 2;
+    this.width *= 2;
+    this.height *= 2;
   }
 }
 
