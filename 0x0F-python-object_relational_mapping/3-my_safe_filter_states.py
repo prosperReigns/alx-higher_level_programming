@@ -4,7 +4,8 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
+        print("Usage: {} <username> <password> <database> <state_name>"
+              .format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
@@ -13,7 +14,8 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     try:
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+        db = MySQLdb.connect(host="localhost", port=3306,
+                             user=username, passwd=password, db=database)
 
         cursor = db.cursor()
 

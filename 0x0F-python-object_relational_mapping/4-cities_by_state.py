@@ -10,10 +10,11 @@ if __name__ == "__main__":
 
     username = sys.argv[1]
     password = sys.argv[2]
-    database_name = sys.argv[3]
+    database = sys.argv[3]
 
     try:
-        db = MySQLdb.connect(host="localhost", port=3306, user="root", passwd="Grace@07", database="hbtn_0e_4_usa")
+        db = MySQLdb.connect(host="localhost", port=3306,
+                             user=username, passwd=password, database=database)
 
         cur = db.cursor()
         query = "SELECT * from cities ORDER BY id ASC"
