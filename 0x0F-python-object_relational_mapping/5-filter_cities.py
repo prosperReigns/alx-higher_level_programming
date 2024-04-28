@@ -1,10 +1,7 @@
 #!/usr/bin/python3
+"""Module that lists all states from the hbtn_0e_0_usa database."""
 import MySQLdb
 import sys
-
-def safe_query(cursor, query, args):
-    cursor.execute(query, args)
-    return cursor.fetchall()
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
@@ -23,8 +20,8 @@ if __name__ == "__main__":
 
         query = "SELECT cities.id, cities.name, states.name FROM cities \
                  JOIN states ON cities.state_id = states.id WHERE states.name=%s ORDER BY cities.id ASC"
-        args = (state_name,)
-        rows = safe_query(cursor, query, args)
+        cursor.execute(query, (state_name,))
+        rows = cursor.fetchall()
 
         for row in rows:
             print(row)

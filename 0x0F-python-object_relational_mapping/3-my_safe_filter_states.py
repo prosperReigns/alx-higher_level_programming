@@ -2,10 +2,6 @@
 import MySQLdb
 import sys
 
-def safe_query(cursor, query, args):
-    cursor.execute(query, args)
-    return cursor.fetchall()
-
 if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
@@ -22,8 +18,8 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         query = "SELECT * FROM states WHERE name=%s ORDER BY id ASC"
-        args = (state_name,)
-        rows = safe_query(cursor, query, args)
+        cursor.execute(query, (state_name,))
+        rows = cursor.fetchall()
 
         for row in rows:
             print(row)

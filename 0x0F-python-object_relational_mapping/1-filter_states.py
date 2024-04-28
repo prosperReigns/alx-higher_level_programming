@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Module that lists all states from the hbtn_0e_0_usa database."""
 import MySQLdb
 import sys
 
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     try: 
-       db = MySQLdb.connect(host="localhost", user="root", passwd="grace@07", port=3306, database="hbtn_0e_0_usa")
+       db = MySQLdb.connect(host="localhost", user="root", passwd="root", port=3306, database="hbtn_0e_0_usa")
 
        cur = db.cursor()
        cur.execute("SELECT * from states WHERE name LIKE 'N%' ORDER BY id ASC")
